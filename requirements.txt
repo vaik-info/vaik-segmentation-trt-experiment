@@ -1,0 +1,2 @@
+tqdm>=4.64.1
+vaik-segmentation-trt-inference @ git+https://github.com/vaik-info/vaik-segmentation-trt-inference.git@e8da62afd9183ea64ca8622f79991b7c39db675c
