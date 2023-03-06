@@ -11,6 +11,34 @@ Create json file by segmentation model. Calc mIoU.
 pip install -r requirements.txt
 ```
 
+## Docker Install
+
+- amd64(g4dn.xlarge)
+
+```shell
+docker build -t g4dnxl_ed_experiment -f ./Dockerfile.g4dn.xlarge .
+sudo docker run --runtime=nvidia \
+           --name g4dnxl_ed_experiment_container \
+           --rm \
+           -v ~/.vaik_segmentation_pb_trainer/dump_dataset:/workspace/dump_dataset \
+           -v ~/output_trt_model:/workspace/output_trt_model \
+           -v $(pwd):/workspace/source \
+           -it g4dnxl_ed_experiment /bin/bash
+```
+
+- arm64(JetsonXavierNX)
+
+```shell
+sudo docker build -t jxnj502_experiment -f ./Dockerfile.jetson_xavier_nx_jp_502 .
+sudo docker run --runtime=nvidia \
+           --name jxnj502_experiment_container \
+           --rm \
+           -v ~/.vaik_segmentation_pb_trainer/dump_dataset:/workspace/dump_dataset \
+           -v ~/output_trt_model:/workspace/output_trt_model \
+           -v $(pwd):/workspace/source \
+           -it jxnj502_experiment /bin/bash
+```
+
 ## Usage
 
 ### Create json file
